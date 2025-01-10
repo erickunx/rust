@@ -12,6 +12,10 @@ use rand::Rng;  //Rng defines methods thar random number generators implements a
                     // you can run "cargo doc --open" which will build documentation provided by
                     // all the dependencies locally and open it in your browser   
 
+use std::cmp::Ordering;     //brings in the Ordering type into the scope which has variants of "Less", "Greater"
+                                //, and "Equal" which are the three possible outcomes when
+                                //comparing two values
+
 //fn declares a new function 
 //() means that there are no parameters
 fn main() {
@@ -50,5 +54,12 @@ fn main() {
     
     println!("You guessed: {}", guess); //current print out of what the guess is 
 
+    //comparing section 
+
+    match guess.cmp(&secret_number){                //"match" expression is used to what to do based on which variant of Ordering was returned, cmp compares the variable 
+        Ordering::Less => println!("Too small!"),   //this is a arm that makes up the match expression this one in particular is when the guess is less than the secret
+        Ordering::Greater => println!("Too big!"),  //this arm is when the guess is greater than the secret
+        Ordering::Equal => println!("You win!"),    //this arm is when the guess is the same as the secret
+    }   
 }
 
