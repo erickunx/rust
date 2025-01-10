@@ -54,7 +54,7 @@ fn main() {
     
     println!("You guessed: {}", guess); //current print out of what the guess is 
 
-    //comparing section 
+    //comparing section adding the use of Ordering demo of match construct
 
     match guess.cmp(&secret_number){                //"match" expression is used to what to do based on which variant of Ordering was returned, cmp compares the variable 
         Ordering::Less => println!("Too small!"),   //this is a arm that makes up the match expression this one in particular is when the guess is less than the secret
