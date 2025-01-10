@@ -52,6 +52,23 @@ fn main() {
         .read_line(&mut guess)          //io::stdin().read_line(&mut guess).expect("failed to read li
         .expect("Failed to read line"); //but this is harder to read therefore it is split into three lines
     
+    let guess: u32 = guess.trim().parse().expect("Please type a number!");      //this shadows the already created variable assigned the name guess letting us reuse the guess variable name other than forcing us to use a new variable name 
+                                                                                //this binds guess to the original guess but uses
+                                                                                    //.trim().parse() which trim method
+                                                                                    //removes any whitespace which is necessary 
+                                                                                    //since a string read_line has a new_line that
+                                                                                    // must be removed to compare to a integer
+                                                                                // parse converts string to a different type,
+                                                                                    // here it is used to convert string to a
+                                                                                    // number
+                                                                                // parse can only be used on characters that can
+                                                                                    // logically be converted into numbers 
+                                                                                    // meaning it can cause a lot of 
+                                                                                    // errors here
+                                                                                // u32 means secret_number must also be a u32
+                                                                                //
+
+    
     println!("You guessed: {}", guess); //current print out of what the guess is 
 
     //comparing section adding the use of Ordering demo of match construct
