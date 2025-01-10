@@ -26,4 +26,6 @@ fn main() {
         //io::stdin().read_line(&mut guess).expect("failed to read line);
         //but this is harder to read therefore it is split into three lines above
     println!("You guessed: {}", guess); //current print out of what the guess is 
+
 }
+
